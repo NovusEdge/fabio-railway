@@ -1,6 +1,6 @@
 # Fabio Load Balancer - Railway Template
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/fabio-lb)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/oXdzwQ?referralCode=dF1nvZ&utm_medium=integration&utm_source=template&utm_campaign=generic)
 
 A highly configurable [Fabio](https://fabiolb.net/) HTTP/HTTPS load balancer template for Railway. Perfect for routing traffic to your Railway services with zero-downtime deployments and automatic service discovery.
 
