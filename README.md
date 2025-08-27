@@ -45,7 +45,7 @@ All configuration is done through environment variables. Here are the key settin
 | `FABIO_IDLE_TIMEOUT`      | `120s`  | Idle connection timeout                   |
 | `FABIO_DIAL_TIMEOUT`      | `10s`   | Backend dial timeout                      |
 | `FABIO_KEEPALIVE_TIMEOUT` | `120s`  | Keep-alive timeout                        |
-| `FABIO_LB_STRATEGY`       | `rnd`   | Load balancing strategy (rnd, rr, iphash) |
+| `FABIO_LB_STRATEGY`       | `rnd`   | Load balancing strategy (rnd, rr) |
 
 ### Logging & Monitoring
 
@@ -140,7 +140,6 @@ FABIO_LOG_LEVEL=DEBUG
 
 - `rnd` (default): Random selection
 - `rr`: Round-robin
-- `iphash`: IP-based hashing for session affinity
 
 ### Custom Routing Rules
 
