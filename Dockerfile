@@ -1,6 +1,14 @@
 FROM fabiolb/fabio:latest
 
-COPY fabio.properties /etc/fabio/fabio.properties
+# Install envsubst (gettext-base) for environment variable substitution
+RUN apk add --no-cache gettext
+
+# Copy configuration template and startup script
+COPY fabio.properties.template /etc/fabio/fabio.properties.template
+COPY start.sh /start.sh
+
+# Make startup script executable
+RUN chmod +x /start.sh
 
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
   CMD ["wget", "-q", "--spider", "http://localhost:${PORT}/health"]
@@ -8,4 +16,4 @@ HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
 # Fabio will read PORT from env
 EXPOSE ${PORT}
 
-CMD ["fabio", "-cfg", "/etc/fabio/fabio.properties"]
+CMD ["/start.sh"]

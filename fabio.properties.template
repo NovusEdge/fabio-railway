@@ -1,0 +1,29 @@
+# Fabio Configuration with Railway Environment Variables
+
+# Proxy listening address (uses Railway's PORT)
+proxy.addr = :${PORT}
+
+# Backend routing - fully customizable via environment variables
+route.add = ${FABIO_ROUTE_PATH:-/} ${FABIO_BACKEND_PROTOCOL:-http}://${FABIO_BACKEND_HOST:-core.railway.internal}:${FABIO_BACKEND_PORT:-8000}${FABIO_BACKEND_PATH:-/} ${FABIO_ROUTE_OPTIONS:-strip=/}
+
+# Health check endpoint - customizable
+route.add = ${FABIO_HEALTH_PATH:-/health} ${FABIO_HEALTH_CHECK:-check:http://200}
+
+# Performance settings - all customizable via environment variables
+proxy.maxconn = ${FABIO_MAX_CONN:-10000}
+proxy.readtimeout = ${FABIO_READ_TIMEOUT:-30s}
+proxy.writetimeout = ${FABIO_WRITE_TIMEOUT:-30s}
+proxy.idletimeout = ${FABIO_IDLE_TIMEOUT:-120s}
+proxy.shutdownwait = ${FABIO_SHUTDOWN_WAIT:-10s}
+
+# Connection settings - customizable
+proxy.dialtimeout = ${FABIO_DIAL_TIMEOUT:-10s}
+proxy.keepalivetimeout = ${FABIO_KEEPALIVE_TIMEOUT:-120s}
+
+# Logging configuration - customizable
+log.level = ${FABIO_LOG_LEVEL:-INFO}
+log.access.target = ${FABIO_LOG_ACCESS_TARGET:-stdout}
+log.access.format = ${FABIO_LOG_ACCESS_FORMAT:-combined}
+
+# Load balancer strategy (rr or rnd)
+proxy.strategy = ${FABIO_LB_STRATEGY:-rnd}
