@@ -28,9 +28,9 @@ export FABIO_REGISTRY_BACKEND=${FABIO_REGISTRY_BACKEND:-static}
 envsubst < /etc/fabio/fabio.properties.template > /etc/fabio/fabio.properties
 
 # Debug: Print the generated configuration to stderr so Railway shows it correctly
-echo "=== Generated fabio.properties ===" >&2
-cat /etc/fabio/fabio.properties >&2
-echo "=== End of configuration ===" >&2
+echo "=== Generated fabio.properties ==="
+cat /etc/fabio/fabio.properties
+echo "=== End of configuration ==="
 
 # Start fabio with the generated configuration
 exec fabio -cfg /etc/fabio/fabio.properties
