@@ -45,13 +45,15 @@ All configuration is done through environment variables. Here are the key settin
 | `FABIO_IDLE_TIMEOUT`      | `120s`  | Idle connection timeout                   |
 | `FABIO_DIAL_TIMEOUT`      | `10s`   | Backend dial timeout                      |
 | `FABIO_KEEPALIVE_TIMEOUT` | `120s`  | Keep-alive timeout                        |
+| `FABIO_SHUTDOWN_WAIT`     | `10s`   | Graceful shutdown wait time               |
 | `FABIO_LB_STRATEGY`       | `rnd`   | Load balancing strategy (rnd, rr) |
+| `FABIO_REGISTRY_BACKEND`  | `static`| Registry backend (static, consul) |
 
 ### Logging & Monitoring
 
 | Variable                        | Default    | Description                                |
 | ------------------------------- | ---------- | ------------------------------------------ |
-| `FABIO_LOG_LEVEL`               | `INFO`     | Log level (DEBUG, INFO, WARN, ERROR)       |
+| `FABIO_LOG_LEVEL`               | `WARN`     | Log level (DEBUG, INFO, WARN, ERROR)       |
 | `FABIO_LOG_ACCESS_TARGET`       | `stdout`   | Access log target                          |
 | `FABIO_LOG_ACCESS_FORMAT`       | `combined` | Access log format                          |
 | `FABIO_METRICS_TARGET`          | ``         | Metrics target (prometheus, graphite, etc) |
