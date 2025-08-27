@@ -3,8 +3,9 @@
 # Proxy listening address (uses Railway's PORT)
 proxy.addr = :$PORT
 
-# Backend routing - fully customizable via environment variables
-route.add = $FABIO_ROUTE_PATH $FABIO_BACKEND_PROTOCOL://$FABIO_BACKEND_HOST:$FABIO_BACKEND_PORT$FABIO_BACKEND_PATH
+# Static routing configuration
+registry.static.routes = \
+  route add core-service $FABIO_ROUTE_PATH $FABIO_BACKEND_PROTOCOL://$FABIO_BACKEND_HOST:$FABIO_BACKEND_PORT$FABIO_BACKEND_PATH
 
 # Performance settings - all customizable via environment variables
 proxy.maxconn = $FABIO_MAX_CONN
