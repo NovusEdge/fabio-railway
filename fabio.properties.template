@@ -4,7 +4,7 @@
 proxy.addr = :$PORT
 
 # Backend routing - fully customizable via environment variables
-route.add = $FABIO_ROUTE_PATH $FABIO_BACKEND_PROTOCOL://$FABIO_BACKEND_HOST:$FABIO_BACKEND_PORT$FABIO_BACKEND_PATH $FABIO_ROUTE_OPTIONS
+route.add = "$FABIO_ROUTE_PATH $FABIO_BACKEND_PROTOCOL://$FABIO_BACKEND_HOST:$FABIO_BACKEND_PORT$FABIO_BACKEND_PATH weight 1.0 $FABIO_ROUTE_OPTIONS"
 
 # Health check endpoint - customizable
 route.add = $FABIO_HEALTH_PATH $FABIO_HEALTH_CHECK
