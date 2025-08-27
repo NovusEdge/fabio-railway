@@ -32,8 +32,8 @@ All configuration is done through environment variables. Here are the key settin
 | `FABIO_BACKEND_PORT`     | `8000`                  | Backend service port          |
 | `FABIO_BACKEND_PROTOCOL` | `http`                  | Backend protocol (http/https) |
 | `FABIO_BACKEND_PATH`     | `/`                     | Backend service path          |
-| `FABIO_ROUTE_PATH`       | `/`                     | Route path to match           |
-| `FABIO_ROUTE_OPTIONS`    | `strip=/`               | Route options                 |
+| `FABIO_ROUTE_PATH`       | `/*`                    | Route path to match           |
+| `FABIO_ROUTE_OPTIONS`    | ``                      | Route options                 |
 
 ### Performance Tuning
 
@@ -53,7 +53,7 @@ All configuration is done through environment variables. Here are the key settin
 
 | Variable                        | Default    | Description                                |
 | ------------------------------- | ---------- | ------------------------------------------ |
-| `FABIO_LOG_LEVEL`               | `WARN`     | Log level (DEBUG, INFO, WARN, ERROR)       |
+| `FABIO_LOG_LEVEL`               | `INFO`     | Log level (DEBUG, INFO, WARN, ERROR)       |
 | `FABIO_LOG_ACCESS_TARGET`       | `stdout`   | Access log target                          |
 | `FABIO_LOG_ACCESS_FORMAT`       | `combined` | Access log format                          |
 | `FABIO_METRICS_TARGET`          | ``         | Metrics target (prometheus, graphite, etc) |
@@ -98,7 +98,8 @@ Internet → Railway Edge → Fabio Load Balancer → Your Backend Services
 
 ```bash
 # No configuration needed - works with defaults
-# Routes all traffic to core.railway.internal:8000
+# Routes all traffic (/*) to core.railway.internal:8000
+# Preserves full URL path without stripping
 ```
 
 ### Custom Backend Service
@@ -112,7 +113,7 @@ FABIO_BACKEND_PORT=3000
 
 ```bash
 # Route API traffic to different backend
-FABIO_ROUTE_PATH=/api/
+FABIO_ROUTE_PATH=/api/*
 FABIO_BACKEND_PATH=/v1/
 FABIO_ROUTE_OPTIONS="strip=/api"
 ```

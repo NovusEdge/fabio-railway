@@ -43,7 +43,7 @@ Key environment variables for configuration:
 FABIO_BACKEND_HOST=your-service.railway.internal
 FABIO_BACKEND_PORT=8000
 FABIO_LB_STRATEGY=rnd  # or 'rr' for round-robin
-FABIO_LOG_LEVEL=WARN   # Reduces log verbosity
+FABIO_LOG_LEVEL=INFO   # Default log verbosity
 ```
 
 ## Why Deploy fabio on Railway?
