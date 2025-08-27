@@ -27,3 +27,6 @@ log.access.format = $FABIO_LOG_ACCESS_FORMAT
 
 # Load balancer strategy (rr or rnd)
 proxy.strategy = $FABIO_LB_STRATEGY
+
+# Registry backend (static routing, no Consul)
+registry.backend = $FABIO_REGISTRY_BACKEND

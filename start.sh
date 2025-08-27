@@ -22,6 +22,7 @@ export FABIO_LOG_LEVEL=${FABIO_LOG_LEVEL:-INFO}
 export FABIO_LOG_ACCESS_TARGET=${FABIO_LOG_ACCESS_TARGET:-stdout}
 export FABIO_LOG_ACCESS_FORMAT=${FABIO_LOG_ACCESS_FORMAT:-combined}
 export FABIO_LB_STRATEGY=${FABIO_LB_STRATEGY:-rnd}
+export FABIO_REGISTRY_BACKEND=${FABIO_REGISTRY_BACKEND:-static}
 
 # Generate fabio.properties from template with environment variable substitution
 envsubst < /etc/fabio/fabio.properties.template > /etc/fabio/fabio.properties
